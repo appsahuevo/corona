@@ -43,7 +43,7 @@ html {
 }
 
 #container {
-	width: 100vw;
+	/*width: 100vw;*/
 	margin-top: 2rem;
 
 }
@@ -64,6 +64,7 @@ html {
    position: relative;
     overflow: visible;
     height: 75vh;
+    width: 100%;
 }
 
 .wheelText {
