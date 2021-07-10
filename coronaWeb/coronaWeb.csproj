@@ -7,11 +7,17 @@
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
     <Content Remove="wwwroot\js\app\" />
+    <Content Remove="wwwroot\css\roulette\" />
+    <Content Remove="wwwroot\js\roulette\" />
+    <Content Remove="wwwroot\media\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
     <Folder Include="Controllers\" />
     <Folder Include="wwwroot\js\app\" />
+    <Folder Include="wwwroot\css\roulette\" />
+    <Folder Include="wwwroot\js\roulette\" />
+    <Folder Include="wwwroot\media\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Controllers\" />
