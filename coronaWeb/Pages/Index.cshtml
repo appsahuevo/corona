@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@section Scripts{
+   
+    @*app js*@
+    <script src="~/js/app/validate.js?rnd=03"></script>
+    <script type="text/javascript">$(function () {
+        preinit();
+    });</script>
+}
+<!--begin::Row-->
+<div class="row">
+    <div class="col-xl-7 col-xxl-4">
+        <img style="max-width:100%" src="~/images/Logos/logo-remodela.png?rdn=1">
+    </div>
+    <div class="col-xl-5 col-xxl-4">
+        <form class="form validateForm">
+            <div class="card-body">
+                <div class="mb-15">
+                    <div class="form-group row">
+                        <label class="col-lg-5 col-form-label text-right">Cédula </label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control required" data-bind="value: client.document" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-5 col-form-label text-right">Nombre </label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control required" data-bind="value: client.name" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-5 col-form-label text-right">Teléfono </label>
+                        <div class="col-lg-6">
+                            <input type="number" class="form-control required" data-bind="value: client.phoneNumber" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-5 col-form-label text-right">Correo electrónico </label>
+                        <div class="col-lg-6">
+                            <input type="email" class="form-control " data-bind="value: client.email" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-5 col-form-label text-right">Código </label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control required" data-bind="value: client.code" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-5">
+                            &nbsp;
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <button type="button" class="btn btn-success" data-bind="click: validate">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+<!--end::Row-->
