@@ -5,7 +5,7 @@ function loadJSON(callback) {
 
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
-  xobj.open('GET', './wheel_data.json?rnd=1000', true); 
+  xobj.open('GET', './wheel_data.json?rnd=7000', true); 
   xobj.onreadystatechange = function() {
     if (xobj.readyState == 4 && xobj.status == "200") {
       //Call the anonymous function (callback) passing in the response

@@ -114,12 +114,12 @@ html {
 
 button {
     position: relative;
-    width: 60vw;
+    width: 40vw;
     /* top: 20px; */
-    max-width: 400px;
+    max-width: 200px;
     padding: 20px;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 18px;
     color: #ededed;
     border-radius: 6px;
     border: none;

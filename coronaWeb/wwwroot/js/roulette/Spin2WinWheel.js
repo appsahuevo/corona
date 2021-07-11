@@ -237,7 +237,7 @@ function Spin2WinWheel() {
         createDraggable();
       }
       
-      showIntroText();
+      //showIntroText();
     },
     randomBetween = function(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
@@ -755,11 +755,11 @@ function Spin2WinWheel() {
       })
 
       //show the gameOver text after 4 seconds
-      TweenMax.to(toastText, 1, {
-        text: gameOverText,
-        ease: Linear.easeNone,
-        delay: 2
-      })
+      //TweenMax.to(toastText, 1, {
+      //  text: gameOverText,
+      //  ease: Linear.easeNone,
+      //  delay: 2
+      //})
 
       onGameEnd({gameId:gameId, target:thisWheel, results:gameResultsArray});
 
