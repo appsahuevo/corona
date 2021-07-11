@@ -31,7 +31,7 @@ button {
 }
 
 body {
-    background-color: #201D51;
+    background-color: #FFFFFF;
     overflow-x: hidden;
     overflow-y: visible;
 }
@@ -188,7 +188,15 @@ button:focus {
     outline: 0;
 }
 
-a:link { color:#F1DC16; }
-a:visited { color:#F1DC16; }
-a:hover { color:#F1DC16; }
-a:active { color:#F1DC16;}
+a:link {
+    color: #e30752;
+}
+a:visited {
+    color: #e30752;
+}
+a:hover {
+    color: #e30752;
+}
+a:active {
+    color: #e30752;
+}
