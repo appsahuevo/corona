@@ -1,0 +1,175 @@
+﻿body {
+    background-color: #000;
+    /*background: linear-gradient(black, gray);*/
+    color: #ffffff !important;
+    font-family: myfont;
+}
+
+#container {
+    
+}
+
+.sweet-alert  input{
+    color: #000;
+}
+
+.control {
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    min-height: 100px;
+    height: 360px;
+    text-align: center;
+    padding-top: 20px !important;    
+}
+
+#lifesavers {
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    padding-bottom: 10px !important;
+    min-height: 100px;
+    height: 296px;
+}
+
+#lifesavers img{
+    border: 0px !important;
+    /*display:block;*/
+}
+
+.logo {
+    /*text-align: center;*/
+}
+
+.ranking {
+    /*border: 2px solid #ffffff;*/
+    border-radius: 20px;
+    min-height: 100px;
+    height: 380px;
+    padding-left: 20px !important;  
+    padding-right: 0px !important;
+    margin-top: 80px;
+}
+
+.main-panel{
+    margin-top: 30px;
+}
+
+.question-panel {
+    margin-top: 30px;
+}
+
+.question {
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    min-height: 100px;
+    height: 150px;
+    text-align: center;
+    padding: 15px !important;
+    font-size: 30px;
+}
+
+.answer-panel {
+    margin-top: 10px;
+}
+
+.answer-panel2 {
+    margin-top: 10px;
+}
+
+.answer {
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    min-height: 100px;
+    height: 140px;
+    padding: 10px !important;
+    margin: 0px;
+    font-size: 25px;
+}
+
+
+#levels{
+    color: #ffffff;
+    text-align: center;
+    font-size: 23px;
+}
+
+.big-text {
+    color: #00b0c5;
+}
+
+.active {
+    color: #00b0c5;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#money {
+    font-weight: bold;
+    text-align: center;
+}
+
+#money span{
+    font-size: 28px;
+}
+
+
+.fifty {
+    background: url('../img/portrait/50-50-new.png') no-repeat 0 0;
+}
+
+.phone-friend {
+    background: url('../img/portrait/phone-friend-new.png') no-repeat 0 0;
+}
+
+.audience {
+    background: url('../img/portrait/audience-new.png') no-repeat 0 0;
+}
+
+.fifty-used {
+    background: url('../img/portrait/50-50-new-disabled.png') no-repeat 0 0;
+}
+
+.phone-friend-used {
+    background: url('../img/portrait/phone-friend-new-disabled.png') no-repeat 0 0;
+}
+
+.audience-used {
+    background: url('../img/portrait/audience-new-disabled.png') no-repeat 0 0;
+}
+
+.options-button {
+    width: 100px;
+    height: 100px;
+    /*margin-left: 12px;*/
+    /*float: left;*/
+    background-position: 0 0;
+    cursor: pointer;
+    display: inline-block;
+    /*margin-top: 15px;
+    margin-left: 130px;*/
+    margin: 10px;
+}
+
+#game-over {
+    display: none;
+    font-size: 8em;
+    font-weight: bold;
+    color: white;
+    width: 980px;
+    padding-top: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#main{
+    text-align: center;
+}
+
+#game{
+    display: none;
+}
+
+.start {
+    cursor: pointer;
+}
+
