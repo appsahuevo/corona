@@ -15,7 +15,6 @@ BRAINYMO.Game = (function () {
     var storage;
     var incrementScore;
 
-
     /**
      * Method that will be invoked on card click
      */
@@ -95,17 +94,11 @@ BRAINYMO.Game = (function () {
         else {
             storage.setBestTime(time);
         }
-
-        // Update best time
-        timer.updateBestTime();
-
     }
 
     function checkActiveCards(connections) {
         return connections[0].data('connection') === connections[1].data('connection');
     }
-
-
 
     return function (config) {
 
@@ -303,42 +296,17 @@ BRAINYMO.Timer = (function () {
 
                         clearInterval(interval);
                         setTimeout(function () {
-                            $('body').css('background-image', "url('" + Utils.getParameter("background1") + "')");
-                            $("#go").hide();
-                            $("#start").show();
-                            $(".btn-start").hide();
-                            $("#endScoreView").show();
-                            $("#endScore").text($("#score").text());
-                            $(".timer").hide();
-                            $("#gameOverText").html(Utils.getParameter("youwin-text"));
-                        }, 600);
-                        //$("#clientScore").text(data.total);
-                        //$("#clientRaking").text(data.position);
 
+                        }, 600);
+                      
+                        alert("lose");
+                        setResult(false);
                     }
                 }
             }, 1000);
 
             // Show timer
             $timer.delay(1000).fadeIn();
-
-            this.updateBestTime();
-        };
-
-        this.getTop = function () {
-
-        };
-
-        this.updateBestTime = function () {
-            // Check if user have saved best game time
-            bestTime = storage.retrieveBestTime();
-            if (bestTime != undefined && bestTime != '') {
-                $bestTimeContainer
-                    .find('#bestTime')
-                    .text(bestTime.minutes + ':' + bestTime.seconds)
-                    .end()
-                    .fadeIn();
-            }
         };
 
         this.stopTimer = function () {
@@ -346,28 +314,11 @@ BRAINYMO.Timer = (function () {
         };
 
         this.youWin = function () {
-
-            setTimeout(function () {
-                if (!end) {
-
-                    clearInterval(interval);
-                    $('body').css('background-image', "url('" + Utils.getParameter("background1") + "')");
-                    $("#go").hide();
-                    $("#start").show();
-                    $(".btn-start").hide();
-                    $("#endScoreView").show();
-                    $("#endScore").text($("#score").text());
-                    $(".timer").hide();
-                    $("#gameOverText").html(Utils.getParameter("youwin-text"));
-
-                    //$("#clientScore").text(data.total);
-                    //$("#clientRaking").text(data.position);
-
-                }
-            }, 500);
+            if (!end) {
+                alert("win");
+                setResult(false);
+            }
         };
-
-
 
         this.retrieveTime = function () {
             return {
@@ -415,6 +366,9 @@ function setupUI() {
     $(".timer").attr("style", 'color:' + Utils.getParameter("timer-color"));
 }
 
+function setResult(finish) {
+
+}
 
 // Game init
 $(function () {
@@ -465,42 +419,33 @@ $(function () {
         ]
     };
 
-
     if (data != null) {
         var brainymo = new BRAINYMO.Game({
             cards: data.Cards,
             event: data.Event
         });
 
-
         Utils.loadParams(data.Parameters);
         setupUI();
-
 
         $("#game").show();
         swal.close();
 
+        start();
+    }
 
-
-        $('#btn-start').click(function () {
-            brainymo.generateCardSet();
-            $(this).html(' <h1>Jugar de nuevo</h1>');
-            //$(this).hide();
-            reset = true;
-            $("#go").show();
-            $("#start").hide();
-            $("#cards-container").show();
-            $("#endScoreView").hide();
-            $("#endScore").text(0);
-            $("#score").text(0);
-            $('body').css('background-image', "url('" + Utils.getParameter("background2") + "')");
-        });
-
-
-
-        $('#tryagain').click(function () {
-            window.location.reload();
-        });
+    function start() {
+        brainymo.generateCardSet();
+        $(this).html(' <h1>Jugar de nuevo</h1>');
+        //$(this).hide();
+        reset = true;
+        $("#go").show();
+        $("#start").hide();
+        $("#cards-container").show();
+        $("#endScoreView").hide();
+        $("#endScore").text(0);
+        $("#score").text(0);
+        $('body').css('background-image', "url('" + Utils.getParameter("background2") + "')");
     }
 
 });

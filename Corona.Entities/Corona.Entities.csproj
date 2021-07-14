@@ -10,4 +10,7 @@
   <ItemGroup>
     <PackageReference Include="GoMonke.Core.Storage" Version="1.0.1" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\" />
+  </ItemGroup>
 </Project>
