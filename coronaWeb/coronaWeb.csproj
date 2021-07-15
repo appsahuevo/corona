@@ -13,7 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\js\app\" />
     <Folder Include="wwwroot\css\roulette\" />
     <Folder Include="wwwroot\js\memory\" />
     <Folder Include="wwwroot\js\roulette\" />
@@ -26,5 +25,25 @@
     <ProjectReference Include="..\Corona.Entities\Corona.Entities.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\Games - Copia %282%29 - Copia.cshtml.cs">
+      <DependentUpon>Games - Copia (2).cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Games - Copia %282%29.cshtml.cs">
+      <DependentUpon>Games.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Games - Copia - Copia %282%29.cshtml.cs">
+      <DependentUpon>Games - Copia.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Games - Copia - Copia - Copia.cshtml.cs">
+      <DependentUpon>Games - Copia - Copia.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Games - Copia - Copia.cshtml.cs">
+      <DependentUpon>Games - Copia.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Games - Copia.cshtml.cs">
+      <DependentUpon>Games.cshtml.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

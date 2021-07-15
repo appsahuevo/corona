@@ -8,7 +8,7 @@ namespace Corona.Entities.Entities
 {
     /// <summary>
     /// PartitionKey= Corona,ClientId
-    /// RowKey= Guid
+    /// RowKey= Code
     /// </summary>
     [TableName("Games")]
     public class Game: TableEntity
@@ -17,14 +17,15 @@ namespace Corona.Entities.Entities
         public string ClientName { get; set; }
         public string ClientPhoneNumber { get; set; }
         public string ClientEmail { get; set; }
-        public string Code { get; set; }
         /// <summary>
         /// Nombre del juego= Ruleta,Concéntrese
         /// </summary>
         public string GameName { get; set; }
         public string PrizeId { get; set; }
         public string PrizeName { get; set; }
-        public string PrizeValue { get; set; }
+        public string PrizeImageUrl { get; set; }
+        public int PrizeLevel { get; set; }
+        public double PrizeValue { get; set; }
 
         //-------------Log info-------------------
         /// <summary>

@@ -1,5 +1,5 @@
 ﻿@page
-@model coronaWeb.Pages.MemoryModel
+@model IndexModel
 @{
     ViewData["Title"] = "Concéntrese";
 }
@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="~/css/roulette/style.css?rnd=04" />
 
     <style>
-
-
         button {
             background-color: #9a186e !important;
         }
@@ -38,12 +36,11 @@
     <script src="~/js/memory/js/utils.js"></script>
 
     <script type="text/javascript">
+        var client = window.localStorage.getItem("client");
 
-        $(function () {
-
-
-        });
-
+        if (client == null) {
+            window.location.href = "Index";
+        }
     </script>
 }
 <div class="content-test">

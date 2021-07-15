@@ -3,7 +3,8 @@ var BRAINYMO = BRAINYMO || {};
 var reset = true;
 var client = { clientId: "", clientName: "", clientEmail: "", score: 0 };
 var end = false;
-
+var gamePrize;
+var wr;
 
 BRAINYMO.Game = (function () {
 
@@ -298,8 +299,8 @@ BRAINYMO.Timer = (function () {
                         setTimeout(function () {
 
                         }, 600);
-                      
-                        alert("lose");
+
+                        window.location.href = "Result?gameId=" + gamePrize.rowKey;
                         setResult(false);
                     }
                 }
@@ -315,7 +316,30 @@ BRAINYMO.Timer = (function () {
 
         this.youWin = function () {
             if (!end) {
-                alert("win");
+                if (gamePrize.level == 1) {
+                    window.location.href = "Result?gameId=" + gamePrize.rowKey;
+                }
+                else {
+                    $.ajax({
+                        url: ("api/Game/GetPrizeLevel1/" + gamePrize.rowKey),
+                        type: "GET",
+                        contentType: 'application/json;charset=utf-8',
+                        success: function (game) {
+                            console.log(game);
+
+                            if (game) {
+                                gamePrize = game;
+                                window.location.href = "Result?gameId=" + gamePrize.rowKey;
+                            }
+                            else {
+                                window.location.href = "Result?gameId=" + gamePrize.rowKey;
+                            }
+                        },
+                        error: function (msg) {
+                            window.location.href = "Result?gameId=" + gamePrize.rowKey;
+                        }
+                    });
+                }
                 setResult(false);
             }
         };
@@ -372,6 +396,8 @@ function setResult(finish) {
 
 // Game init
 $(function () {
+    wr = JSON.parse(window.localStorage.getItem("client"));
+
     var cards = [];
     var imgUrls = [
         "../images/Ambientes/033425551.jpg", "../images/Ambientes/719515551.jpg",
@@ -430,8 +456,6 @@ $(function () {
 
         $("#game").show();
         swal.close();
-
-        start();
     }
 
     function start() {
@@ -439,13 +463,39 @@ $(function () {
         $(this).html(' <h1>Jugar de nuevo</h1>');
         //$(this).hide();
         reset = true;
-        $("#go").show();
-        $("#start").hide();
-        $("#cards-container").show();
-        $("#endScoreView").hide();
-        $("#endScore").text(0);
-        $("#score").text(0);
-        $('body').css('background-image', "url('" + Utils.getParameter("background2") + "')");
+
     }
 
+    $("#go").show();
+    $("#start").hide();
+    $("#cards-container").show();
+    $("#endScoreView").hide();
+    $("#endScore").text(0);
+    $("#score").text(0);
+    $('body').css('background-image', "url('" + Utils.getParameter("background2") + "')");
+
+    $.ajax({
+        url: ("api/Game/GetPrizeMemory/" + wr.client.rowKey + "/" + wr.code),
+        type: "GET",
+        contentType: 'application/json;charset=utf-8',
+        success: function (game) {
+            console.log(game);
+
+            if (game) {
+                gamePrize = game;
+                start();
+            }
+            else {
+                Utils.showErrorMessage(msg.responseText);
+                setTimeoutI(function () {
+                    window.location.href = "Index";
+                }, 3000);
+            }
+        },
+        error: function (msg) {
+            window.location.href = "Index";
+
+            Utils.showErrorMessage(msg.responseText);
+        }
+    });
 });

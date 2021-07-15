@@ -4,12 +4,14 @@
     ViewData["Title"] = "Home page";
 }
 @section Scripts{
-   
+
     @*app js*@
     <script src="~/js/app/validate.js?rnd=03"></script>
-    <script type="text/javascript">$(function () {
-        preinit();
-    });</script>
+    <script type="text/javascript">
+        $(function () {
+            preinit();
+        });
+    </script>
 }
 <!--begin::Row-->
 <div class="row">
@@ -23,7 +25,7 @@
                     <div class="form-group row">
                         <label class="col-lg-5 col-form-label text-right">Cédula </label>
                         <div class="col-lg-6">
-                            <input type="text" class="form-control required" data-bind="value: client.document" />
+                            <input id="documentNumber" type="text" class="form-control required" data-bind="value: client.rowKey" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -47,7 +49,7 @@
                     <div class="form-group row">
                         <label class="col-lg-5 col-form-label text-right">Código </label>
                         <div class="col-lg-6">
-                            <input type="text" class="form-control required" data-bind="value: client.code" />
+                            <input type="text" class="form-control required" data-bind="value: code" />
                         </div>
                     </div>
                     <div class="form-group row">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Corona.Entities;
+using Corona.Entities.Business;
 using GoMonke.Core.Storage;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,26 +22,39 @@ namespace coronaWeb.Controllers
             _service = service;
         }
 
+        // GET: api/<GameController>
+        [HttpGet("GetClient/{documentNumber}")]
+        public Client GetClient(string documentNumber)
+        {
+            var repo = new Repository<Client>(_service);
+            var client = repo.Get(Helper.DefaultAppName, documentNumber);
+
+            return client;
+        }
+
         // Post
-        [HttpPost]
-        public IActionResult Post([FromBody]Client client)
+        [HttpPost("SaveClient")]
+        public IActionResult Post([FromBody] ClientWrapper wr)
         {
             var repoCode = new Repository<Code>(_service);
             var repoClient = new Repository<Client>(_service);
+            var resultCode = repoCode.Get(Helper.DefaultAppName, wr.Code);
+            var client = wr.Client;
 
-            var resultCode = repoCode.Get(Helper.DefaultAppName, client.Code);
-
-            if (resultCode != null && !resultCode.IsUsed)
+            if (resultCode != null && !resultCode.IsUsed1 && !resultCode.IsUsed2 && client != null)
             {
                 client.PartitionKey = Helper.DefaultAppName;
-                client.RowKey = Guid.NewGuid().ToString();
 
                 repoClient.Save(client);
+                wr.IsUsed = false;
 
-                resultCode.IsUsed = true;
-                repoCode.Save(resultCode);
+                return Ok(wr);
+            }
+            else if (resultCode != null && (resultCode.IsUsed1 || resultCode.IsUsed2) && client != null)
+            {
+                wr.IsUsed = true;
 
-                return Ok("");
+                return Ok(wr);
             }
             else
             {

@@ -11,6 +11,20 @@ namespace Corona.Entities
     [TableName("Codes")]
     public class Code : TableEntity
     {
-        public bool IsUsed { get; set; }
+        public string PrizeId1 { get; set; }
+        public string PrizeId2 { get; set; }
+        public string PrizeName1 { get; set; }
+        public string PrizeName2 { get; set; }
+        public bool IsUsed1 { get; set; }
+        public bool IsUsed2 { get; set; }
+        public int LevelPrize1 { get; set; }
+        public int LevelPrize2 { get; set; }
+        public double PrizeValue1 { get; set; }
+        public double PrizeValue2 { get; set; }
+        //-------------Log info-------------------
+        /// <summary>
+        /// Fecha de creación
+        /// </summary>
+        public DateTime? UsedDate { get; set; }
     }
 }

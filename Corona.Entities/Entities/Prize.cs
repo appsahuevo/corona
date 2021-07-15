@@ -28,5 +28,8 @@ namespace Corona.Entities.Entities
         /// </summary>
         public int Level { get; set; }
         public double Value { get; set; }
+        public bool IsUsed { get; set; }
+        public DateTime? UsedDate { get; set; }
+
     }
 }
