@@ -23,6 +23,30 @@ namespace coronaWeb.Controllers
         }
 
         //// GET: api/<GameController>
+        [HttpGet("ResetGame")]
+        public dynamic ResetGame()
+        {
+            var repo = new Repository<Code>(_service);
+            var repoPrize = new Repository<Prize>(_service);
+            var codes = repo.GetAll().Result.ToList();
+            var prizes = repoPrize.GetAll().Result.ToList();
+
+            foreach (var item in codes)
+            {
+                var p1 = prizes.Find(x => x.RowKey == item.PrizeId1);
+                var p2 = prizes.Find(x => x.RowKey == item.PrizeId2);
+
+                item.PrizeName1 = p1.Name;
+                item.PrizeName2 = p2.Name;
+
+                repo.Save(item);
+                Thread.Sleep(200);
+            }
+
+            return true;
+        }
+
+        //// GET: api/<GameController>
         [HttpGet("GetGame/{gameId}")]
         public Game GetGame(string gameId)
         {

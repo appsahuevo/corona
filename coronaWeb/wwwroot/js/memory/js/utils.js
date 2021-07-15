@@ -4,6 +4,15 @@
         getParameter: function (paramId) {
             return _parameters.get(paramId);
         },
+        loading: function () {
+            //document.getElementById("loading").style.display = "block";
+            $('.loader-container').addClass('show-loader');
+        },
+        loaded: function () {
+            //document.getElementById("loading").style.display = "none";
+
+            $('.loader-container').removeClass('show-loader');
+        },
         loadParams: function (data) {
            
             for (var i = 0; i < data.length; i++) {

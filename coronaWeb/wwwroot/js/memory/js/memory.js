@@ -1,5 +1,4 @@
-﻿
-var BRAINYMO = BRAINYMO || {};
+﻿var BRAINYMO = BRAINYMO || {};
 var reset = true;
 var client = { clientId: "", clientName: "", clientEmail: "", score: 0 };
 var end = false;
@@ -463,17 +462,17 @@ $(function () {
         $(this).html(' <h1>Jugar de nuevo</h1>');
         //$(this).hide();
         reset = true;
-
+        $("#go").show();
+        $("#start").hide();
+        $("#cards-container").show();
+        $("#endScoreView").hide();
+        $("#endScore").text(0);
+        $("#score").text(0);
+        $('body').css('background-image', "url('" + Utils.getParameter("background2") + "')");
     }
 
-    $("#go").show();
-    $("#start").hide();
-    $("#cards-container").show();
-    $("#endScoreView").hide();
-    $("#endScore").text(0);
-    $("#score").text(0);
-    $('body').css('background-image', "url('" + Utils.getParameter("background2") + "')");
 
+    Utils.loading();
     $.ajax({
         url: ("api/Game/GetPrizeMemory/" + wr.client.rowKey + "/" + wr.code),
         type: "GET",
@@ -488,10 +487,12 @@ $(function () {
             else {
                 window.location.href = "Index";
             }
+
+            Utils.loaded();
         },
         error: function (msg) {
             window.location.href = "Index";
-
+            Utils.loaded();
             Utils.showErrorMessage(msg.responseText);
         }
     });

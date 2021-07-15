@@ -3,7 +3,59 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@section Head{
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/css/roulette/style.css?rnd=04" />
+    <link href="~/js/sweetalert/sweetalert.css" rel="stylesheet" />
+    <style>
+        .btn-purple {
+            background-color: #9a186e !important;
+            color: #ffffff !important;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none !important;
+        }
+
+        .title {
+            color: #9a186e !important;
+            font-size: 33px;
+            margin: 20px 0px 40px 0px;
+        }
+
+        a,
+        .form-check-label {
+            color: #9a186e !important;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .col-form-label {
+            color: #9a186e !important;
+            font-size: 25px;
+            font-weight: bold;
+            padding: 0px;
+        }
+
+        .form-control {
+            border-color: #9a186e !important;
+            border-radius: 10px !important;
+        }
+
+        .gamesContent {
+            margin-top: 50px;
+            background-image: url("../images/Logos/cerpentinas.png");
+            background-size: contain; /* for IE9+, Safari 4.1+, Chrome 3.0+, Firefox 3.6+ */
+            -webkit-background-size: contain; /* for Safari 3.0 - 4.0 , Chrome 1.0 - 3.0 */
+            -moz-background-size: contain; /* optional for Firefox 3.6 */
+            -o-background-size: contain; /* for Opera 9.5 */
+            padding: 0; /* to remove the default white margin of body */
+            background-repeat: no-repeat;
+        }
+    </style>
+}
 @section Scripts{
+
+    <script src="~/js/sweetalert/sweetalert.js"></script>
 
     @*app js*@
     <script src="~/js/app/validate.js?rnd=03"></script>
@@ -14,11 +66,13 @@
     </script>
 }
 <!--begin::Row-->
-<div class="row">
-    <div class="col-xl-7 col-xxl-4">
+<div class="row gamesContent">
+    <div class="col-xl-6 col-xxl-4">
         <img style="max-width:100%" src="~/images/Logos/logo-remodela.png?rdn=1">
+        <br />
+        <h1 class="title">¡Muchas oportunidades para ganar!</h1>
     </div>
-    <div class="col-xl-5 col-xxl-4">
+    <div class="col-xl-6 col-xxl-4" style="padding-top: 40px;padding-left: 0px;padding-right: 20px;">
         <form class="form validateForm">
             <div class="card-body">
                 <div class="mb-15">
@@ -57,7 +111,7 @@
                             &nbsp;
                         </div>
                         <div class="col-lg-6 text-right">
-                            <button type="button" class="btn btn-success" data-bind="click: validate">Enviar</button>
+                            <button type="button" class="btn btn-success btn-purple " data-bind="click: validate">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -65,6 +119,21 @@
 
         </form>
     </div>
-
+    <div class="col-xl-7 col-xxl-4" style="padding-top:130px">
+        <div class="form-check form-check-inline">
+            <input data-bind="checked: check1" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1"><a href="https://mail.google.com/mail/u/0?ui=2&ik=a7bd43cd09&attid=0.1&permmsgid=msg-f:1705368009281253865&th=17aaaf2b448631e9&view=att&disp=safe&realattid=17aa6573bfa90b805b47" target="_blank"> Acepto términos y condiciones</a></label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input data-bind="checked: check2" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Acepto manejo de datos personales</label>
+        </div>
+    </div>
+    <div class="col-xl-2">
+        <img src="~/images/Logos/logo-grival.png" style="width: 170px;" />
+    </div>
+    <div class="col-xl-2" style="padding:0px;">
+        <img src="~/images/Logos/logo-corona-esp.png" style="width: 200px;" />
+    </div>
 </div>
 <!--end::Row-->

@@ -10,6 +10,7 @@
     self.game = ko.mapping.fromJS(gameJSON);
 
     self.init = function () {
+        Utils.loading();
         window.localStorage.removeItem("client");
 
         var parameters = Utils.getQueryParams();
@@ -28,9 +29,11 @@
                     else {
                         window.location.href = "Index";
                     }
+                    Utils.loaded();
                 },
                 error: function (msg) {
                     window.location.href = "Index";
+                    Utils.loaded();
                 }
             });
         }

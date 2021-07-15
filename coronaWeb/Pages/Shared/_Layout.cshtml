@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" type="text/css">
+    <link href="~/css/loader.css" rel="stylesheet" />
+
     @RenderSection("Head", required: false)
 </head>
 <body>
@@ -21,6 +23,22 @@
             &copy; 2021 - coronaWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
+
+    <div class="loader-container">
+        <strong>Cargando...</strong>
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
