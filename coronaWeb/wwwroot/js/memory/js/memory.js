@@ -486,10 +486,7 @@ $(function () {
                 start();
             }
             else {
-                Utils.showErrorMessage(msg.responseText);
-                setTimeoutI(function () {
-                    window.location.href = "Index";
-                }, 3000);
+                window.location.href = "Index";
             }
         },
         error: function (msg) {
