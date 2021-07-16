@@ -1,5 +1,5 @@
 var wheeldata = {
-  "colorArray": [ "#fab614", "#fdd616"],
+    "colorArray": ["#fdd616", "#fab614"],
 
     "segmentValuesArray": [
         { "probability": 0, "type": "image", "value": "images/logos/falabella.png", "win": true, "resultText": "GANASTE HOMECENTER!", "userData": { "score": 1 } },
