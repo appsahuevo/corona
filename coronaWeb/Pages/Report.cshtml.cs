@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace coronaWeb.Pages
 {
-    public class PrivacyModel : PageModel
+    public class ReportModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<ReportModel> _logger;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public ReportModel(ILogger<ReportModel> logger)
         {
             _logger = logger;
         }
