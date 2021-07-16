@@ -69,8 +69,10 @@
                 contentType: "application/json;charset=utf-8",
                 success: function (data) {
                     if (!data.isUsed) {
+                        self.clean();
                         window.localStorage.setItem("client", JSON.stringify(data))
                         window.location.href = "Games";
+                        
                     }
                     else {
                         swal({
@@ -87,7 +89,11 @@
                         },
                             function (isConfirm) {
                                 if (isConfirm) {
-                                    window.location.href = "Result?gameId=" + data.code;
+                                    self.clean();
+                                    window.location.href = "Result?gameId=" + data.code;                                    
+                                }
+                                else {
+                                    location.reload();
                                 }
                             });
                     }
@@ -98,6 +104,13 @@
                 }
             });
         }
+    };
+
+    self.clean = function () {
+        ko.mapping.fromJS(clientJSON, self.client);
+        self.check1(false);
+        self.check2(false);
+        self.code("");
     };
 };
 
