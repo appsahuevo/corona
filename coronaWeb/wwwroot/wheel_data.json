@@ -31,7 +31,7 @@
   "centerY": 350,  
   "hasShadows": false,
   "numSpins": 1,
-  "spinDestinationArray":[],
+  "spinDestinationArray":[2],
   "minSpinDuration":3,
   "gameOverText":"GRACIAS POR PARTICIPAR<br>DISFRÚTALO",
   "invalidSpinText":"INVALID SPIN. PLEASE SPIN AGAIN.",
