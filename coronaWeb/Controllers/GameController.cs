@@ -28,18 +28,33 @@ namespace coronaWeb.Controllers
         {
             var repo = new Repository<Code>(_service);
             var repoPrize = new Repository<Prize>(_service);
+            var repoGame = new Repository<Game>(_service);
             var codes = repo.GetAll().Result.ToList();
             var prizes = repoPrize.GetAll().Result.ToList();
+            var games = repoGame.GetAll().Result.ToList();
 
             foreach (var item in codes)
             {
-                var p1 = prizes.Find(x => x.RowKey == item.PrizeId1);
-                var p2 = prizes.Find(x => x.RowKey == item.PrizeId2);
-
-                item.PrizeName1 = p1.Name;
-                item.PrizeName2 = p2.Name;
+                item.IsUsed1 = false;
+                item.IsUsed2 = false;
+                item.UsedDate = null;
 
                 repo.Save(item);
+                Thread.Sleep(200);
+            }
+
+            foreach (var item in prizes)
+            {
+                item.IsUsed = false;
+                item.UsedDate = null;
+
+                repoPrize.Save(item);
+                Thread.Sleep(200);
+            }
+
+            foreach (var item in games)
+            {
+                repoGame.Delete(item);
                 Thread.Sleep(200);
             }
 
@@ -170,6 +185,7 @@ namespace coronaWeb.Controllers
             var repoClient = new Repository<Client>(_service);
             var codeEntity = repoCode.Get(Helper.DefaultAppName, code);
             var client = repoClient.Get(Helper.DefaultAppName, clientId);
+            var game = repoGame.Get(Helper.DefaultAppName, code);
 
             try
             {
@@ -180,9 +196,9 @@ namespace coronaWeb.Controllers
                     var prizeId2 = codeEntity.PrizeId2.Split("-");
                     var prize2 = repo.Get(prizeId2[0], codeEntity.PrizeId2);
 
-                    if (prize1.IsUsed == false && (prize1.Level == 2 || prize2.IsUsed))
+                    if (game == null)
                     {
-                        var game = new Game()
+                        game = new Game()
                         {
                             PartitionKey = Helper.DefaultAppName,
                             RowKey = code,
@@ -192,67 +208,60 @@ namespace coronaWeb.Controllers
                             ClientPhoneNumber = client.PhoneNumber,
                             CreationDate = DateTime.Now,
                             GameName = "Concéntrese",
-                            PrizeId = prize1.RowKey,
-                            PrizeName = prize1.Name,
-                            PrizeLevel = prize1.Level,
-                            PrizeImageUrl = prize1.ImageUrl,
-                            PrizeValue = prize1.Value
+                            Attempts = 0
                         };
+                    }
+                    if (prize1.IsUsed == false && (prize1.Level == 2 || prize2.IsUsed))
+                    {
+                        game.PrizeId = prize1.RowKey;
+                        game.PrizeName = prize1.Name;
+                        game.PrizeLevel = prize1.Level;
+                        game.PrizeImageUrl = prize1.ImageUrl;
+                        game.PrizeValue = prize1.Value;
+                        game.Attempts++;
 
                         repoGame.Save(game);
                         game.PartitionKey = client.RowKey;
                         repoGame.Save(game);
 
-                        prize1.IsUsed = true;
-                        prize1.UsedDate = game.CreationDate;
+                        //prize1.IsUsed = true;
+                        //prize1.UsedDate = game.CreationDate;
 
-                        repo.Save(prize1);
+                        //repo.Save(prize1);
 
-                        codeEntity.IsUsed1 = true;
-                        codeEntity.UsedDate = game.CreationDate;
+                        //codeEntity.IsUsed1 = true;
+                        //codeEntity.UsedDate = game.CreationDate;
 
-                        repoCode.Save(codeEntity);
+                        //repoCode.Save(codeEntity);
 
                         return Ok(game);
                     }
                     if (prize2.IsUsed == false)
                     {
-                        var game = new Game()
-                        {
-                            PartitionKey = Helper.DefaultAppName,
-                            RowKey = code,
-                            ClientId = client.RowKey,
-                            ClientEmail = client.Email,
-                            ClientName = client.Name,
-                            ClientPhoneNumber = client.PhoneNumber,
-                            CreationDate = DateTime.Now,
-                            GameName = "Concéntrese",
-                            PrizeId = prize2.RowKey,
-                            PrizeName = prize2.Name,
-                            PrizeLevel = prize2.Level,
-                            PrizeImageUrl = prize2.ImageUrl,
-                            PrizeValue = prize2.Value
-
-                        };
+                        game.PrizeId = prize2.RowKey;
+                        game.PrizeName = prize2.Name;
+                        game.PrizeLevel = prize2.Level;
+                        game.PrizeImageUrl = prize2.ImageUrl;
+                        game.PrizeValue = prize2.Value;
+                        game.Attempts++;
 
                         repoGame.Save(game);
                         game.PartitionKey = client.RowKey;
                         repoGame.Save(game);
 
-                        prize2.IsUsed = true;
-                        prize2.UsedDate = game.CreationDate;
+                        //prize2.IsUsed = true;
+                        //prize2.UsedDate = game.CreationDate;
 
-                        repo.Save(prize1);
+                        //repo.Save(prize1);
 
-                        codeEntity.IsUsed2 = true;
-                        codeEntity.UsedDate = game.CreationDate;
+                        //codeEntity.IsUsed2 = true;
+                        //codeEntity.UsedDate = game.CreationDate;
 
-                        repoCode.Save(codeEntity);
+                        //repoCode.Save(codeEntity);
 
                         return Ok(game);
                     }
                 }
-
             }
             catch (Exception)
             {
@@ -280,8 +289,9 @@ namespace coronaWeb.Controllers
                     var prize1 = repo.Get(prizeId[0], code.PrizeId1);
                     var prizeId2 = code.PrizeId2.Split("-");
                     var prize2 = repo.Get(prizeId2[0], code.PrizeId2);
+                    var level = game.Attempts > 1 ? 2 : 1;
 
-                    if (code.IsUsed1 && !prize2.IsUsed && prize2.Level == 1)
+                    if ((code.IsUsed1 && !prize2.IsUsed) || (!prize2.IsUsed && prize2.Level == level))
                     {
                         game.PrizeId = prize2.RowKey;
                         game.PrizeImageUrl = prize2.ImageUrl;
@@ -309,7 +319,7 @@ namespace coronaWeb.Controllers
 
                         return Ok(game);
                     }
-                    else if (code.IsUsed2 && !prize1.IsUsed && prize1.Level == 1)
+                    else if (!prize1.IsUsed)
                     {
                         game.PrizeId = prize1.RowKey;
                         game.PrizeImageUrl = prize1.ImageUrl;

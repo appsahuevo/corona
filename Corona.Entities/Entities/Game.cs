@@ -24,6 +24,7 @@ namespace Corona.Entities.Entities
         public string PrizeId { get; set; }
         public string PrizeName { get; set; }
         public string PrizeImageUrl { get; set; }
+        public int Attempts { get; set; }
         public int PrizeLevel { get; set; }
         public double PrizeValue { get; set; }
 

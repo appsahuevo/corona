@@ -296,11 +296,18 @@ BRAINYMO.Timer = (function () {
 
                         clearInterval(interval);
                         setTimeout(function () {
-
+                            $('body').css('background-image', "url('" + Utils.getParameter("background1") + "')");
+                            $("#go").hide();
+                            $("#start").show();
+                            $(".btn-start").hide();
+                            $("#endScoreView").show();
+                            $("#endScore").text($("#score").text());
+                            $(".timer").hide();
+                            $("#gameOverText").html(Utils.getParameter("youwin-text"));
                         }, 600);
 
-                        window.location.href = "Result?gameId=" + gamePrize.rowKey;
-                        setResult(false);
+                        //window.location.href = "Result?gameId=" + gamePrize.rowKey;
+                        //setResult(false);
                     }
                 }
             }, 1000);
@@ -426,7 +433,7 @@ $(function () {
         Event: {
             Name: "Concentrese",
             Description: "",
-            Time: 60,
+            Time: 31,
             Score: 10
         },
         Cards: cards,

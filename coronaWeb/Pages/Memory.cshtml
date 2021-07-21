@@ -20,6 +20,34 @@
             background-color: #9a186e !important;
             border-radius: 14px;
         }
+
+        .title {
+            color: #9a186e !important;
+            font-size: 60px;
+            margin: 40px;
+            font-weight: bold !important;
+        }
+
+        .btn-purple {
+            background-color: #9a186e !important;
+            color: #ffffff !important;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none !important;
+            border-color: #9a186e !important;
+            font-size: 33px !important;
+        }
+
+        .gamesContent {
+            background-image: url("../images/Logos/cerpentinas.png");
+            background-size: contain; /* for IE9+, Safari 4.1+, Chrome 3.0+, Firefox 3.6+ */
+            -webkit-background-size: contain; /* for Safari 3.0 - 4.0 , Chrome 1.0 - 3.0 */
+            -moz-background-size: contain; /* optional for Firefox 3.6 */
+            -o-background-size: contain; /* for Opera 9.5 */
+            margin: 0; /* to remove the default white margin of body */
+            padding: 0; /* to remove the default white margin of body */
+            background-repeat: no-repeat;
+        }
     </style>
 }
 @section Scripts{
@@ -32,7 +60,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--memory-->
-    <script src="~/js/memory/js/memory.js"></script>
+    <script src="~/js/memory/js/memory.js?rnd=00"></script>
     <script src="~/js/memory/js/utils.js"></script>
 
     <script type="text/javascript">
@@ -45,36 +73,29 @@
 }
 <div class="content-test">
     <div id="game" class="align-center" style="display: none">
-        @*<div id="start">
-            <div class="row">
-                <div class="col-md-6" style="margin: auto;background-color:">
-                    <img style="width:300px;" src="~/images/Logos/logo-remodela.png?rdn=1">
-                </div>
-                <div class="col-md-6" style="margin: auto;">
-                    <img style="width: 280px;" src="~/images/Logos/icono-concentrese.png" />
-                </div>
-            </div>
-
-            <div id="endScoreView" class="" style="display: none; margin-top:450px;margin-left: 50px;margin-right: 50px;color:#0298FF">
-                <br />
-                <div>
-                    <div style="font-size:100px;text-align: center; color:white;margin-top: 253px;">
-                        <span>Tu puntaje fue <span id="endScore" style="margin-bottom: 0px;"></span></span>
+        <div id="start">
+            <div class="row" style="margin-bottom: 0px;">
+                <div class="col-md-10 row" style="margin: auto;">
+                    <div class="col-md-6" style="margin: auto;">
+                        <img style="width:250px;" src="~/images/Logos/logo-remodela.png?rdn=1">
                     </div>
-                </div>
-                <br />
-                <br />
-                <div>
-                    <div style="font-size:70px;text-align: center; color:white">
-                        <img id="tryagain" width="40%" class="start tryagain" src="https://whowantstobemillionaire.blob.core.windows.net/images/new-game-ISA.png">
+                    <div class="col-md-6" style="margin: auto;">
+                        <img style="width: 220px;" src="~/images/Logos/icono-concentrese.png" />
                     </div>
                 </div>
             </div>
-
-            <div id="" class="heading btn-start" style="margin-top: 50px">
-                <button id="btn-start" class="start">COMENZAR!</button>
+            <div id="endScoreView" class="row gamesContent" style="display: none; margin-top:50px;margin-left: 50px;margin-right: 50px;">
+                <div class="col-md-12" style="margin: auto;">
+                    &nbsp;
+                </div>
+                <div class="col-md-12 " style="margin: auto;">
+                    <h1 class="title"> !Se acabó el tiempo¡</h1>
+                </div>
+                <div class="col-md-12 " style="margin: auto;">
+                    &nbsp;   &nbsp; &nbsp;  <a id="tryagain" href="Memory" class="btn-purple start tryagain">REINTENTAR</a>  &nbsp;   &nbsp; &nbsp;
+                </div>
             </div>
-        </div>*@
+        </div>
         <div id="go" class="" style="display:none">
             <div class="row" style="margin-bottom: 0px;">
                 <div class="col-md-10 row" style="margin: auto;">
