@@ -1,8 +1,13 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Remodela y Gana";
 }
+@section Banner{
+    <div class="bannerimage">
+    </div>
+}
+
 @section Head{
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="~/css/roulette/style.css?rnd=04" />
@@ -19,8 +24,8 @@
 
         .title {
             color: #9a186e !important;
-            font-size: 33px;
-            margin: 20px 0px 40px 0px;
+            font-size: 25px;
+            margin: 20px 0px 20px 0px;
         }
 
         a,
@@ -32,7 +37,7 @@
 
         .col-form-label {
             color: #9a186e !important;
-            font-size: 25px;
+            font-size: 18px;
             font-weight: bold;
             padding: 0px;
         }
@@ -40,10 +45,11 @@
         .form-control {
             border-color: #9a186e !important;
             border-radius: 10px !important;
+            font-size: 0.9rem !important;
         }
 
         .gamesContent {
-            margin-top: 50px;
+            margin-top: 20px;
             background-image: url("../images/Logos/cerpentinas.png");
             background-size: contain; /* for IE9+, Safari 4.1+, Chrome 3.0+, Firefox 3.6+ */
             -webkit-background-size: contain; /* for Safari 3.0 - 4.0 , Chrome 1.0 - 3.0 */
@@ -53,103 +59,109 @@
             background-repeat: no-repeat;
         }
 
+        .form-group {
+            margin-bottom: 0.5rem !important;
+        }
+
         button {
             box-shadow: unset !important;
         }
     </style>
 }
+
 @section Scripts{
 
     <script src="~/js/sweetalert/sweetalert.js"></script>
 
     @*app js*@
     <script src="~/js/app/validate.js?rnd=04"></script>
-    <script type="text/javascript">
-        $(function () {
+    <script type="text/javascript">$(function () {
             preinit();
-        });
-    </script>
+        });</script>
 }
 <!--begin::Row-->
+
+
 <div class="row gamesContent">
     <div class="col-xl-6 col-xxl-4">
-        <img style="max-width:100%" src="~/images/Logos/logo-remodela.png?rdn=1">
+        <img style="max-width:55%" class="index-m-img" src="~/images/Logos/logo-remodela.png?rdn=1">
         <br />
         <h1 class="title">¡Muchas oportunidades para ganar!</h1>
     </div>
-    <div class="col-xl-6 col-xxl-4" style="padding-top: 40px;padding-left: 0px;padding-right: 20px;">
-        <form class="form validateForm">
+    <div class="col-xl-6 col-xxl-4 p-t-m" style="padding-left: 0px;padding-right: 20px;">
+        <form class="form validateForm index-m-form">
             <div class="card-body">
                 <div class="mb-15">
                     <div class="form-group row">
-                        <label class="col-lg-5 col-form-label text-right">Cédula </label>
-                        <div class="col-lg-6">
+                        <label class="col-3 col-md-5 col-form-label text-right">Cédula </label>
+                        <div class="col-9 col-md-6">
                             <input id="documentNumber" type="text" class="form-control required" data-bind="value: client.rowKey" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-5 col-form-label text-right">Nombre </label>
-                        <div class="col-lg-6">
+                        <label class="col-3 col-md-5 col-form-label text-right">Nombre </label>
+                        <div class="col-9 col-md-6">
                             <input type="text" class="form-control required" data-bind="value: client.name" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-5 col-form-label text-right">Teléfono </label>
-                        <div class="col-lg-6">
+                        <label class="col-3 col-md-5 col-form-label text-right">Teléfono </label>
+                        <div class="col-9 col-md-6">
                             <input type="number" class="form-control required" data-bind="value: client.phoneNumber" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-5 col-form-label text-right">Correo electrónico </label>
-                        <div class="col-lg-6">
+                        <label class="col-3 col-md-5 col-form-label text-right">Correo electrónico </label>
+                        <div class="col-9 col-md-6">
                             <input type="email" class="form-control " data-bind="value: client.email" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-5 col-form-label text-right">Código </label>
-                        <div class="col-lg-6">
+                        <label class="col-3 col-md-5 col-form-label text-right">Código </label>
+                        <div class="col-9 col-md-6">
                             <input type="text" class="form-control required" data-bind="value: code" />
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-lg-3">
-                            &nbsp;
-                        </div>
-                        <div class="col-lg-8 col-sm-12 form-check form-check-inline text-right">
-                            <input data-bind="checked: check1" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1"><a href="~/files/TérminosCondicionesHOMECENTER.pdf" target="_blank"> Acepto términos y condiciones</a></label>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-lg-3">
-                            &nbsp;
-                        </div>
-                        <div class="col-lg-8 col-sm-12 form-check form-check-inline text-right">
-                            <input data-bind="checked: check2" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2"><a href="~/files/tratamientodatosHOMECENTER.pdf" target="_blank"> Acepto manejo de datos personales</a></label>
-                        </div>
-                    </div>
-                        <div class="form-group row">
-                            <div class="col-lg-5">
+                    @*<div class="form-group row">
+                            <div class="col-lg-3">
                                 &nbsp;
                             </div>
-                            <div class="col-lg-6 text-right">
-                                <button type="button" class="btn btn-success btn-purple " data-bind="click: validate">Enviar</button>
+                            <div class="col-lg-8 col-sm-12 form-check form-check-inline text-right">
+                                <input data-bind="checked: check1" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1"><a href="~/files/TérminosCondicionesHOMECENTER.pdf" target="_blank"> Acepto términos y condiciones</a></label>
                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-3">
+                                &nbsp;
+                            </div>
+                            <div class="col-lg-8 col-sm-12 form-check form-check-inline text-right">
+                                <input data-bind="checked: check2" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2"><a href="~/files/tratamientodatosHOMECENTER.pdf" target="_blank"> Acepto manejo de datos personales</a></label>
+                            </div>
+                        </div>*@
+                    <div class="form-group row">
+                        <div class="col-lg-5">
+                            &nbsp;
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <button type="button" class="btn btn-success btn-purple " data-bind="click: validate">Enviar</button>
                         </div>
                     </div>
                 </div>
+            </div>
 
         </form>
     </div>
-    <div class="col-xl-2">
-        <img src="~/images/Logos/logo-grival.png" style="width: 170px;" />
-    </div>
-    <div class="col-xl-2" style="padding:0px;">
-        <img src="~/images/Logos/logo-corona-esp.png" style="width: 200px;" />
-    </div>
-    <div class="col-xl-7 col-xxl-4" style="padding-top:130px">
-        &nbsp;
+    <div class="col-xl-7 col-xxl-4 index-m-check chexk-text-a-l">
+        <div class="form-check form-check-inline chexk-text-a-l">
+            <input data-bind="checked: check1" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineC heckbox1"><a href="~/files/TérminosCondicionesHOMECENTER.pdf" target="_blank"> Acepto términos y condiciones</a></label>
+        </div>
+        <div class="form-check form-check-inline chexk-text-a-l">
+            <input data-bind="checked: check2" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2"><a href="~/files/tratamientodatosHOMECENTER.pdf" target="_blank"> Acepto manejo de datos personales</a></label>
+        </div>
     </div>
 
 </div>

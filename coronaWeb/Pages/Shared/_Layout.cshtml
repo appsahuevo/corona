@@ -3,26 +3,48 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - coronaWeb</title>
+    <title>@ViewData["Title"] - Corona</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css?rdn=6" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" type="text/css">
     <link href="~/css/loader.css" rel="stylesheet" />
 
     @RenderSection("Head", required: false)
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+            <div class="container">
+                <div class="col-1 col-xl-10 col-xxl-4">
+                    &nbsp;
+                </div>
+                <div class="col-11 col-xl-2" style="text-align:right;">    
+                    <img src="~/images/Logos/Logo-cobranding.png" class="logo-w-m"/>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    @RenderSection("Banner", required: false)
+
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    @*<footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color: #285EA3;position:relative !important">
         <div class="container">
-            &copy; 2021 - coronaWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-6 col-md-6" style="text-align:left; padding-left:10px !important">
+                    <a href="https://corona.co/" target="_blank" class="font-brandon" style="color:white !important">corona.co</a>
+                </div>
+                <div class="col-6 col-md-6" style="text-align: right; padding-right: 10px !important">
+                    <a href="https://www.grival.com/" target="_blank" class="font-brandon" style="color:white !important">grival.com</a>
+                </div>
+            </div>
         </div>
-    </footer>*@
+    </footer>
 
     <div class="loader-container">
         <strong>Cargando...</strong>

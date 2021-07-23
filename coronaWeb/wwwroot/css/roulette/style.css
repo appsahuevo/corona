@@ -55,15 +55,16 @@ html {
     justify-content: center;
     flex-direction: column;
     margin: 0;
-    width: 100vw
-    height: 100vh;
+    margin-bottom: -50px;
+/*    width: 100vw;
+    height: 100vh;*/
 
 }
 
 .wheelSVG {
    position: relative;
     overflow: visible;
-    height: 75vh;
+    height: 65vh;
     width: 100%;
 }
 

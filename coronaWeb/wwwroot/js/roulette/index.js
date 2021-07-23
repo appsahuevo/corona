@@ -1,15 +1,15 @@
 var wheeldata = {
-    "colorArray": ["#fdd616", "#fab614"],
+    "colorArray": ["#F2F2F2", "#FFFFFF"],
 
     "segmentValuesArray": [
-        { "probability": 0, "type": "image", "value": "images/logos/falabella.png", "win": true, "resultText": "GANASTE HOMECENTER!", "userData": { "score": 1 } },
-        { "probability": 0, "type": "image", "value": "images/logos/Tiendas_D1_logo.png", "win": true, "resultText": "GANASTE D1!", "userData": { "score": 2 } },
-        { "probability": 0, "type": "image", "value": "images/logos/netflix.png", "win": true, "resultText": "GANASTE NETFLIX!", "userData": { "score": 3 } },
-        { "probability": 0, "type": "image", "value": "images/logos/kokoriko.png", "win": true, "resultText": "GANASTE KOKORIKO!", "userData": { "score": 4 } },
-        { "probability": 0, "type": "image", "value": "images/logos/falabella.png", "win": true, "resultText": "GANASTE HOMECENTER!", "userData": { "score": 1 } },
-        { "probability": 0, "type": "image", "value": "images/logos/Tiendas_D1_logo.png", "win": true, "resultText": "GANASTE D1!", "userData": { "score": 2 } },
-        { "probability": 0, "type": "image", "value": "images/logos/netflix.png", "win": true, "resultText": "GANASTE NETFLIX!", "userData": { "score": 3 } },
-        { "probability": 0, "type": "image", "value": "images/logos/kokoriko.png", "win": true, "resultText": "GANASTE KOKORIKO!", "userData": { "score": 4 } } 
+        { "probability": 0, "type": "image", "value": "images/logos/falabella2.png", "win": true, "resultText": "GANASTE HOMECENTER!", "userData": { "score": 1 } },
+        { "probability": 0, "type": "image", "value": "images/logos/Tiendas_D1_logo2.png", "win": true, "resultText": "GANASTE D1!", "userData": { "score": 2 } },
+        { "probability": 0, "type": "image", "value": "images/logos/netflix2.png", "win": true, "resultText": "GANASTE NETFLIX!", "userData": { "score": 3 } },
+        { "probability": 0, "type": "image", "value": "images/logos/kokoriko2.png", "win": true, "resultText": "GANASTE KOKORIKO!", "userData": { "score": 4 } },
+        { "probability": 0, "type": "image", "value": "images/logos/falabella2.png", "win": true, "resultText": "GANASTE HOMECENTER!", "userData": { "score": 1 } },
+        { "probability": 0, "type": "image", "value": "images/logos/Tiendas_D1_logo2.png", "win": true, "resultText": "GANASTE D1!", "userData": { "score": 2 } },
+        { "probability": 0, "type": "image", "value": "images/logos/netflix2.png", "win": true, "resultText": "GANASTE NETFLIX!", "userData": { "score": 3 } },
+        { "probability": 0, "type": "image", "value": "images/logos/kokoriko2.png", "win": true, "resultText": "GANASTE KOKORIKO!", "userData": { "score": 4 } } 
         ],
 
   "svgWidth": 800,
@@ -22,14 +22,14 @@ var wheeldata = {
   "wheelTextSize": "2.3em",
   "wheelImageOffsetY": 50,
   "wheelImageSize": 100,
-  "centerCircleSize": 60,
-  "centerCircleStrokeColor": "#F1DC15",
+  "centerCircleSize": 30,
+  "centerCircleStrokeColor": "#FFFFFF",
   "centerCircleStrokeWidth": 12,
   "centerCircleFillColor": "#EDEDED",
   "centerCircleImageUrl":"",
   "centerCircleImageWidth":400,
   "centerCircleImageHeight":400,  
-  "segmentStrokeColor": "#E2E2E2",
+  "segmentStrokeColor": "#F2F2F2",
   "segmentStrokeWidth": 4,
   "centerX": 400,
   "centerY": 350,  

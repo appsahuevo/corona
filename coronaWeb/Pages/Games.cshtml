@@ -1,7 +1,7 @@
 ﻿@page
 @model GamesModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Remodela y Gana";
 }
 @section Head{
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
@@ -14,11 +14,12 @@
             border-radius: 10px;
             text-decoration: none !important;
             border-color: #9a186e !important;
+            width: 140px;
         }
 
         .title {
             color: #9a186e !important;
-            font-size: 60px;
+            font-size: 40px;
             margin: 40px;
         }
 
@@ -48,43 +49,45 @@
     </script>
 }
 
-<div class="row">
+<div class="row" style="padding-top: 95px; height: 200px; background-image: url(../images/Ambientes/Banner-CHC.png); background-size: cover">
     <div class="col-md-12" style="margin: auto;">
         <img style="width:350px;" src="~/images/Logos/logo-remodela.png?rdn=1">
     </div>
 </div>
 
-<div class="row gamesContent">
-    <div class="col-md-12" style="margin: auto;">
-        &nbsp;
+<div class="gamesContent" style="padding-top: 95px">
+    <div class="row">
+        <div class="col-md-12 " style="margin: auto;">
+            <h4 class="title"> ¿Qué quieres jugar hoy?</h4>
+        </div>
     </div>
-    <div class="col-md-12 " style="margin: auto;">
-        <h1 class="title"> ¿Qué quieres jugar hoy?</h1>
+    <div class="row">
+        <div class="col-0 col-md-3" style="margin: auto;">
+            &nbsp;
+        </div>
+        <div class="col-6 col-md-3" style="margin: auto;">
+            <div class="col-md-12" style="margin: auto;">
+                <img src="~/images/Logos/icono-ruleta.png" class="icon-r-w" />
+            </div>
+            <div class="col-md-12" style="margin: auto;">
+                <a href="Roulette" class="btn btn-purple">RULETA</a>
+            </div>
+        </div>
+        <div class="col-6 col-md-3" style="margin: auto;">
+            <div class="col-md-12" style="margin: auto;">
+                <img src="~/images/Logos/icono-concentrese.png" class="icon-c-w" />
+            </div>
+            <div class="col-md-12" style="margin: auto;">
+                <a href="Memory" class="btn btn-purple">CONCÉNTRESE</a>
+            </div>
+        </div>
+        <div class="col-0 col-md-3" style="margin: auto;">
+            &nbsp;
+        </div>
     </div>
-    <br />
-    <br />
-    <div class="col-md-2" style="margin: auto;">
-        &nbsp;
+        <div class="row">
+            <div class="col-md-6" style="margin: auto;">
+                &nbsp;
+            </div>
+        </div>
     </div>
-    <div class="col-md-4" style="margin: auto;">
-        <img src="~/images/Logos/icono-ruleta.png" style="width:140px" />
-    </div>
-    <div class="col-md-4" style="margin: auto;">
-        <img src="~/images/Logos/icono-concentrese.png" style="width:160px" />
-    </div>
-    <div class="col-md-2" style="margin: auto;">
-        &nbsp;
-    </div>
-    <div class="col-md-2" style="margin: auto;">
-        &nbsp;
-    </div>
-    <div class="col-md-4" style="margin: auto;">
-        <a href="Roulette" class="btn-purple">&nbsp;&nbsp;&nbsp;RULETA&nbsp;&nbsp;&nbsp;</a>
-    </div>
-    <div class="col-md-4" style="margin: auto;">
-        <a href="Memory" class="btn-purple">CONCÉNTRESE</a>
-    </div>
-    <div class="col-md-2" style="margin: auto;">
-        &nbsp;
-    </div>
-</div>
