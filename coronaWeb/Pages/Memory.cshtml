@@ -5,9 +5,9 @@
 }
 @section Head{
     <link href="~/js/sweetalert/sweetalert.css" rel="stylesheet" />
-    <link href="~/js/memory/css/materialize.min.css" rel="stylesheet" />
+    @*<link href="~/js/memory/css/materialize.min.css?rdn=0" rel="stylesheet" />*@
     <!--memory-->
-    <link href="~/js/memory/css/memory.css" rel="stylesheet" />
+    <link href="~/js/memory/css/memory.css?rdn=12" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="~/css/roulette/style.css?rnd=04" />
 
@@ -23,7 +23,7 @@
 
         .title {
             color: #9a186e !important;
-            font-size: 60px;
+            font-size: 40px;
             margin: 40px;
             font-weight: bold !important;
         }
@@ -60,7 +60,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--memory-->
-    <script src="~/js/memory/js/memory.js?rnd=00"></script>
+    <script src="~/js/memory/js/memory.js?rnd=03"></script>
     <script src="~/js/memory/js/utils.js"></script>
 
     <script type="text/javascript">
@@ -74,41 +74,42 @@
 <div class="content-test">
     <div id="game" class="align-center" style="display: none">
         <div id="start">
-            <div class="row" style="margin-bottom: 0px;">
+            <div class="row" style="margin-bottom: 0px; height: 200px; background-image: url(../images/Ambientes/Banner-CHC.png); background-size: cover">
                 <div class="col-md-10 row" style="margin: auto;">
-                    <div class="col-md-6" style="margin: auto;">
-                        <img style="width:250px;" src="~/images/Logos/logo-remodela.png?rdn=1">
+                    <div class="col-6 col-md-6" style="margin: auto;">
+                        <img class="icon-logo-m" src="~/images/Logos/logo-remodela.png?rdn=1">
                     </div>
-                    <div class="col-md-6" style="margin: auto;">
-                        <img style="width: 220px;" src="~/images/Logos/icono-concentrese.png" />
+                    <div class="col-6 col-md-6" style="margin: auto;">
+                        <img class="icon-m-m" src="~/images/Logos/icono-concentrese.png" />
                     </div>
                 </div>
             </div>
-            <div id="endScoreView" class="row gamesContent" style="display: none; margin-top:50px;margin-left: 50px;margin-right: 50px;">
+            <div id="endScoreView" class="row gamesContent" style="display: none; margin-top:50px;">
                 <div class="col-md-12" style="margin: auto;">
                     &nbsp;
                 </div>
                 <div class="col-md-12 " style="margin: auto;">
                     <h1 class="title"> !Se acabó el tiempo¡</h1>
                 </div>
-                <div class="col-md-12 " style="margin: auto;">
+                <div class="col-md-12 " style="margin: auto;margin-bottom:180px">
                     &nbsp;   &nbsp; &nbsp;  <a id="tryagain" href="Memory" class="btn-purple start tryagain">REINTENTAR</a>  &nbsp;   &nbsp; &nbsp;
                 </div>
+               
             </div>
         </div>
         <div id="go" class="" style="display:none">
-            <div class="row" style="margin-bottom: 0px;">
+            <div class="row" style="margin-bottom: 0px; height: 200px; background-image: url(../images/Ambientes/Banner-CHC.png); background-size: cover">
                 <div class="col-md-10 row" style="margin: auto;">
-                    <div class="col-md-6" style="margin: auto;">
-                        <img style="width:250px;" src="~/images/Logos/logo-remodela.png?rdn=1">
+                    <div class="col-6 col-md-6" style="margin: auto;">
+                        <img class="icon-logo-m" src="~/images/Logos/logo-remodela.png?rdn=1">
                     </div>
-                    <div class="col-md-6" style="margin: auto;">
-                        <img style="width: 220px;" src="~/images/Logos/icono-concentrese.png" />
+                    <div class="col-6 col-md-6" style="margin: auto;">
+                        <img class="icon-m-m" src="~/images/Logos/icono-concentrese.png" />
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2 timer-content" style="margin: auto;">
+            <div class="row" style="padding-top:20px">
+                <div class="col-md-2 timer-content time-m-w" style="margin: auto;">
                     <div class="timer text" style="font: bold; display: block;height: 80px !important;">
                         <label id="minutes" style="font: bold; "></label>
                         <label id="twopoints" style="font: bold;">:</label>

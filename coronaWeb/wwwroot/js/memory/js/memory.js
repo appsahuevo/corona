@@ -204,12 +204,19 @@ BRAINYMO.Card = (function () {
             var preparedTemplate;
             var numOfCards = cards.length * 2;
 
+            console.log(cut);
 
             // se utiliza para armar el rentangulo con 5, 4, 3, o 2 columnas
             var cut = (numOfCards % 4 == 0 ? 4 : (numOfCards % 3 == 0 ? 3 : 2));
             //casa puntual 
             var cut = numOfCards == 4 ? 2 : cut;
             var count = 0;
+
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                // true for mobile device
+                cut = 3;
+            } 
+            console.log(cut);
 
             // Prepare every card and push it to array
             cards.forEach(function (card) {

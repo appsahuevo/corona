@@ -4206,7 +4206,7 @@ nav ul a span.badge {
   }
 }
 
-nav {
+/*nav {
   color: #fff;
   background-color: #ee6e73;
   width: 100%;
@@ -4419,7 +4419,7 @@ nav .input-field label.active i {
   .navbar-fixed {
     height: 64px;
   }
-}
+}*/
 
 @font-face {
   font-family: "Roboto";

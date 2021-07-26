@@ -6,6 +6,20 @@
 @section Head{
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="~/css/roulette/style.css?rnd=05" />
+    <style>
+
+
+        .wheelContainer {
+            background-image: url("../images/Logos/cerpentinas.png");
+            background-size: contain; /* for IE9+, Safari 4.1+, Chrome 3.0+, Firefox 3.6+ */
+            -webkit-background-size: contain; /* for Safari 3.0 - 4.0 , Chrome 1.0 - 3.0 */
+            -moz-background-size: contain; /* optional for Firefox 3.6 */
+            -o-background-size: contain; /* for Opera 9.5 */
+            margin: 0; /* to remove the default white margin of body */
+            padding: 0; /* to remove the default white margin of body */
+            background-repeat: no-repeat;
+        }
+    </style>
 }
 @section Scripts{
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'></script>
@@ -14,13 +28,11 @@
     <script src="~/js/roulette/Spin2WinWheel.js?rnd=2000"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/TextPlugin.min.js'></script>
     <script src="~/js/roulette/index.js?rnd=321"></script>
-    <script>
-        var client = window.localStorage.getItem("client");
+    <script>var client = window.localStorage.getItem("client");
 
         if (client == null) {
             window.location.href = "Index";
-        }
-    </script>
+        }</script>
 }
 
 <div class="row" style="height: 200px; background-image: url(../images/Ambientes/Banner-CHC.png); background-size: cover">
@@ -31,7 +43,7 @@
         <button class="spinBtn button-roulette">GIRAR RULETA</button>
     </div>
 </div>
-<div class="row">
+<div class="row gamesContent">
     <div class="col-12">
         <div id="container" style="margin-top: 1rem !important;">
 

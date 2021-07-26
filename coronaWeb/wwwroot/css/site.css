@@ -138,6 +138,22 @@ body {
     width: 250px;
 }
 
+.icon-logo-m {
+    width: 250px;
+}
+
+.icon-m-m {
+    width: 220px;
+}
+
+.img-bono-w {
+    width: 400px;
+}
+
+.logo-res-w {
+    width: 300px;
+}
+
 @media (max-width: 768px) {
     .chexk-text-a-l {
         text-align: left;
@@ -166,6 +182,26 @@ body {
 
     .image-r-w {
         width: 190px;
+    }
+
+    .icon-logo-m {
+        width: 150px;
+    }
+
+    .icon-m-m {
+        width: 150px;
+    }
+
+    .time-m-w {
+        width: 40% !important;
+    }
+
+    .img-bono-w {
+        width: 200px;
+    }
+
+    .logo-res-w {
+        width: 250px;
     }
 }
 

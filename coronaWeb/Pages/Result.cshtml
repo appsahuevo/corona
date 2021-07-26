@@ -37,27 +37,30 @@
 
     @*app js*@
     <script src="~/js/app/result.js?rnd=03"></script>
-    <script type="text/javascript">
-        $(function () {
+    <script type="text/javascript">$(function () {
             preinit();
-        });
-    </script>
+        });</script>
 }
-
+@section Banner{
+    <div class="bannerimage">
+    </div>
+}
 <div class="row">
     <div class="col-md-12" style="margin: auto;">
-        <img style="width:350px;" src="~/images/Logos/logo-remodela.png?rdn=1" />
+        <img class="logo-res-w" src="~/images/Logos/logo-remodela.png?rdn=1" />
     </div>
 </div>
 
 <div class="row gamesContent">
     <div class="col-md-12" style="margin: auto;">
-        &nbsp;
-    </div>
-    <br />
-    <br />
-    <br />
+        <img src="~/images/Logos/ganaste.png" class="img-bono-w" style="padding-top:20px" />
+    </div> 
     <div class="col-md-12 " style="margin: auto;">
-        <img data-bind="attr:{src: game.prizeImageUrl()}" src="#"  style="width:700px;"/>
+        <img data-bind="attr:{src: game.prizeImageUrl()}" src="#" class="img-bono-w" />
+    </div>
+    <div class="col-md-12 font-brandon" style="margin: auto;text-align:center">
+        <span class="font-brandon">En un plazo máximo de 72 horas un representante Corona se contactará</span><br />
+        <span class="font-brandon">contigo al número WhatsApp registrado al momento del ingreso con las</span><br />
+        <span class="font-brandon">instrucciones de redención del bono.</span>
     </div>
 </div>
