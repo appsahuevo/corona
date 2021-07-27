@@ -215,7 +215,7 @@ BRAINYMO.Card = (function () {
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 // true for mobile device
                 cut = 3;
-            } 
+            }
             console.log(cut);
 
             // Prepare every card and push it to array
@@ -436,54 +436,9 @@ $(function () {
         }
     };
 
-    var data = {
-        Event: {
-            Name: "Concentrese",
-            Description: "",
-            Time: 31,
-            Score: 10
-        },
-        Cards: cards,
-        Parameters: [
-            { RowKey: "button-color", Value: "#0000FF", Type: "" },
-            { RowKey: "background-color1", Value: "#0000FF" },
-            { RowKey: "background1", Value: "../img/PANTALLA.png" },
-            { RowKey: "background2", Value: "../img/PANTALLA2.jpg" },
-            { RowKey: "foreground-color", Value: "#0000FF" },
-            { RowKey: "logo2", Value: "../img/SELLO.png" },
-            { RowKey: "logo1", Value: "../img/SELLO.png" },
-            { RowKey: "back", Value: "../images/Ambientes/back2.png" },
-            { RowKey: "text-color", Value: "#FFFFFF" },
-            { RowKey: "timer-color", Value: "#FFFFFF" }
-        ]
-    };
 
-    if (data != null) {
-        var brainymo = new BRAINYMO.Game({
-            cards: data.Cards,
-            event: data.Event
-        });
 
-        Utils.loadParams(data.Parameters);
-        setupUI();
-
-        $("#game").show();
-        swal.close();
-    }
-
-    function start() {
-        brainymo.generateCardSet();
-        $(this).html(' <h1>Jugar de nuevo</h1>');
-        //$(this).hide();
-        reset = true;
-        $("#go").show();
-        $("#start").hide();
-        $("#cards-container").show();
-        $("#endScoreView").hide();
-        $("#endScore").text(0);
-        $("#score").text(0);
-        $('body').css('background-image', "url('" + Utils.getParameter("background2") + "')");
-    }
+   
 
 
     Utils.loading();
@@ -495,8 +450,57 @@ $(function () {
             console.log(game);
 
             if (game) {
+                var data = {
+                    Event: {
+                        Name: "Concentrese",
+                        Description: "",
+                        Time: game.attempts >= 4 ? 41 : 31,
+                        Score: 10
+                    },
+                    Cards: cards,
+                    Parameters: [
+                        { RowKey: "button-color", Value: "#0000FF", Type: "" },
+                        { RowKey: "background-color1", Value: "#0000FF" },
+                        { RowKey: "background1", Value: "../img/PANTALLA.png" },
+                        { RowKey: "background2", Value: "../img/PANTALLA2.jpg" },
+                        { RowKey: "foreground-color", Value: "#0000FF" },
+                        { RowKey: "logo2", Value: "../img/SELLO.png" },
+                        { RowKey: "logo1", Value: "../img/SELLO.png" },
+                        { RowKey: "back", Value: "../images/Ambientes/back2.png" },
+                        { RowKey: "text-color", Value: "#FFFFFF" },
+                        { RowKey: "timer-color", Value: "#FFFFFF" }
+                    ]
+                };
+
+                if (data != null) {
+                    var brainymo = new BRAINYMO.Game({
+                        cards: data.Cards,
+                        event: data.Event
+                    });
+
+                    Utils.loadParams(data.Parameters);
+                    setupUI();
+
+                    $("#game").show();
+                    swal.close();
+                }
+
                 gamePrize = game;
                 start();
+
+                function start() {
+                    brainymo.generateCardSet();
+                    $(this).html(' <h1>Jugar de nuevo</h1>');
+                    //$(this).hide();
+                    reset = true;
+                    $("#go").show();
+                    $("#start").hide();
+                    $("#cards-container").show();
+                    $("#endScoreView").hide();
+                    $("#endScore").text(0);
+                    $("#score").text(0);
+                    $('body').css('background-image', "url('" + Utils.getParameter("background2") + "')");
+                }
             }
             else {
                 window.location.href = "Index";
