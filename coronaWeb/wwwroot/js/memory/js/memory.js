@@ -454,7 +454,7 @@ $(function () {
                     Event: {
                         Name: "Concentrese",
                         Description: "",
-                        Time: game.attempts >= 4 ? 41 : 31,
+                        Time: game.attempts >= 2 ? 41 : 31,
                         Score: 10
                     },
                     Cards: cards,
